@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kemet Scroll Nav: Index</title>
+  <link href="index.css" rel="stylesheet" />
+</head>
+<body class="index">
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../kemet-scroll-nav.js';
+
+    render(
+      html`
+        <nav>
+          <a href="index.sticky.html">Sticky Effect</a>
+          <a href="index.resize.html">Resize Effect</a>
+        </nav>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
