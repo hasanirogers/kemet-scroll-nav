@@ -8,7 +8,8 @@ export class KemetScrollNav extends LitElement {
           display: block;
         }
 
-        :host([transform]) {
+        :host([transform]),
+        :host([effect="resize"]) {
           position: fixed;
           top: 0;
           width: 100%;
@@ -26,6 +27,9 @@ export class KemetScrollNav extends LitElement {
       transform: {
         type: Boolean,
         reflect: true
+      },
+      offset: {
+        type: Number
       }
     };
   }
@@ -35,6 +39,7 @@ export class KemetScrollNav extends LitElement {
 
     this.effect = 'sticky';
     this.transform = false;
+    this.offset = 0;
   }
 
   render() {
@@ -44,22 +49,20 @@ export class KemetScrollNav extends LitElement {
   }
 
   firstUpdated() {
-    const stickpoint = this.offsetTop;
+    const stickPoint = this.offsetTop;
+    const elementHeight = this.offsetHeight;
 
     window.addEventListener('scroll', () => {
-      // we pass stickpoint as a recorded const on init so that it does not update for each call to handleScroll
-      this.handleScroll(stickpoint);
+      // we pass stickPoint and elementHeight as recorded constants
+      // so that it does not update for each call to handleScroll
+      this.handleScroll(stickPoint, elementHeight);
     });
   }
 
-  handleScroll(stickpoint) {
-    let transformPoint;
-
-    switch (this.effect) {
-      case 'sticky' : transformPoint = stickpoint; break;
-      case 'resize' : transformPoint = this.offsetHeight; break;
-      default : transformPoint = stickpoint;
-    }
+  handleScroll(stickPoint, elementHeight) {
+    const transformPoint = (this.effect === 'sticky')
+      ? stickPoint + this.offset
+      : elementHeight + this.offset;
 
     if (window.pageYOffset >= transformPoint) {
       this.transform = true;
