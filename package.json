@@ -1,7 +1,7 @@
 {
   "name": "@kemet/kemet-scroll-nav",
   "version": "1.0.0",
-  "description": "A navigation that transforms at a scroll point.",
+  "description": "An element that transforms at a scroll point.",
   "author": "Hasani Rogers <hasani.rogers@gmail.com>",
   "license": "MIT",
   "main": "index.js",

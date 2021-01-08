@@ -3,7 +3,7 @@
   "tags": [
     {
       "name": "kemet-scroll-nav",
-      "description": "A navigation that transforms at a scroll point.",
+      "description": "An element that transforms at a scroll point.",
       "properties": [
         {
           "name": "effect",
