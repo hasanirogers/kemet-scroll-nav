@@ -3,30 +3,30 @@
   "tags": [
     {
       "name": "kemet-scroll-nav",
-      "description": "A component with a title and an action counter",
+      "description": "A navigation that transforms at a scroll point.",
       "properties": [
         {
-          "name": "title",
+          "name": "effect",
           "type": "String",
-          "description": "The title of your component",
-          "default": "Hey there"
+          "description": "Determines where the transform point is activated. Values include: (sticky | resize)",
+          "default": "sticky"
         },
         {
-          "name": "counter",
+          "name": "transform",
+          "type": "Boolean",
+          "description": "Whether or not the nav has shifted into a new state.",
+          "default": false
+        },
+        {
+          "name": "offset",
           "type": "Number",
-          "description": "An action counter",
+          "description": "Allows for an arbitrary adjustment of the transform point in pixels. Works with negative values.",
           "default": 0
         }
       ],
       "events": [],
       "slots": [],
-      "cssProperties": [
-        {
-          "name": "--kemet-scroll-nav-text-color",
-          "description": "Main Text Color",
-          "type": "Color"
-        }
-      ]
+      "cssProperties": []
     }
   ]
 }
